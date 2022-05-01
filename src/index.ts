@@ -1,8 +1,6 @@
 import { rtdb } from "./db";
 import { getDatabase, ref, onValue, set} from "firebase/database";
  
-function main () {
-
 function readData (rtdb) {
   const chatRoomRef = ref(rtdb, 'ChatRoom/Room_1');
   onValue(chatRoomRef, (snapshot) => {
@@ -10,7 +8,6 @@ function readData (rtdb) {
     console.log(snapshot, data);
   })
 };
-
 // function writeData (userId, name, email, imageUrl) {
 //   const chatRoomRef = ref(rtdb, '/ChatRooms');
 //   set(ref(rtdb, 'ChatRoom/Room_1'), {
@@ -19,10 +16,9 @@ function readData (rtdb) {
 //       profile_picture : imageUrl
 //     });
 // }
-
+ 
+function main () {
 readData(rtdb);
-// writeData(1235, 'Alex', 'alex@hotmail.com', '');
-
 }
 main();
 
