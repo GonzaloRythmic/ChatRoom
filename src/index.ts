@@ -1,10 +1,28 @@
 import { rtdb } from "./db";
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, set} from "firebase/database";
+ 
+function main () {
 
-//We listen whith this
-const chatRoomRef = ref(rtdb,'/ChatRooms');
-console.log("soy el chatroomref",chatRoomRef );
-onValue(chatRoomRef, (snapshot) => {
-  const data = snapshot.val();
-  console.log(snapshot.val());
-});
+function readData (rtdb) {
+  const chatRoomRef = ref(rtdb, 'ChatRoom/Room_1');
+  onValue(chatRoomRef, (snapshot) => {
+    const data = snapshot.val();
+    console.log(snapshot, data);
+  })
+};
+
+// function writeData (userId, name, email, imageUrl) {
+//   const chatRoomRef = ref(rtdb, '/ChatRooms');
+//   set(ref(rtdb, 'ChatRoom/Room_1'), {
+//       username: name,
+//       email: email,
+//       profile_picture : imageUrl
+//     });
+// }
+
+readData(rtdb);
+// writeData(1235, 'Alex', 'alex@hotmail.com', '');
+
+}
+main();
+
