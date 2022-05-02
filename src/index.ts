@@ -1,24 +1,30 @@
-import { rtdb } from "./db";
-import { getDatabase, ref, onValue, set} from "firebase/database";
+import  *as express from 'express';
+import {firestore, rtdb} from './db';
+import {json} from 'body-parser';
+import {v4 as uuidv4} from 'uuid';
+import *as cors from 'cors';
+import { app } from 'firebase-admin';
+import { initRouter } from './router';
+import { state } from './state';
  
-function readData (rtdb) {
-  const chatRoomRef = ref(rtdb, 'ChatRoom/Room_1');
-  onValue(chatRoomRef, (snapshot) => {
-    const data = snapshot.val();
-    console.log(snapshot, data);
-  })
-};
-// function writeData (userId, name, email, imageUrl) {
-//   const chatRoomRef = ref(rtdb, '/ChatRooms');
-//   set(ref(rtdb, 'ChatRoom/Room_1'), {
-//       username: name,
-//       email: email,
-//       profile_picture : imageUrl
-//     });
-// }
- 
-function main () {
-readData(rtdb);
-}
-main();
 
+
+
+function main () {
+  console.log("Soy la rtdb",rtdb, 'Soy el firestore', firestore);
+  const express = require('express')
+  // const app = express()
+  // const port = 3000
+  // state.init();
+  // state.setEmailAndFullName({email: 'AVB@prueba.com', fullname:'AS', message: 'Chau'});
+  
+  // app.get('/', (req, res) => {
+  //   res.send('Hello World!')
+  // })
+  
+  // app.listen(port, () => {
+  //   console.log(`Example app listening on port ${port}`)
+  // })
+
+}
+main()

@@ -3,10 +3,13 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "firebase": "^9.6.11",
-    "parcel": "^2.0.0-rc.0"
+    "firebase-admin": "^10.1.0",
+    "parcel": "^2.0.0-rc.0",
+    "uuid": "^8.3.2"
   },
   "scripts": {
     "dev": "parcel serve ./src/index.html"

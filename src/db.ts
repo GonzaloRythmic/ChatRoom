@@ -1,5 +1,7 @@
 import { initializeApp } from 'firebase/app';
+import *as admin from 'firebase-admin'
 import { getDatabase, ref, onValue } from "firebase/database";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "'w52IIbHhAc4BgvzJJennld8PDMvQsvqkRK0nSMcM'",
@@ -9,10 +11,10 @@ const firebaseConfig = {
 };
   
 const app = initializeApp(firebaseConfig);
+const firestore = getFirestore(app); //Get a reference to firestore database. 
+const rtdb = getDatabase(app); // Get a reference to the  real time database service
 
-const rtdb = getDatabase(app); // Get a reference to the database service
-
-export {rtdb}
+export {rtdb, firestore}
 
 
 
