@@ -12,6 +12,7 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "dev": "parcel serve ./src/index.html"
+    "dev": "parcel serve -p 3000 ./src/index.html",
+    "ts": "ts-node ./src/index.ts"
   }
 }

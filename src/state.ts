@@ -9,7 +9,7 @@ const state = {
     init() {
         // Get the local data
         const localData = JSON.parse(localStorage.getItem("saved-tasks"));
-        console.log('Init State');
+        console.log('Se ha ejecutado el Init State');
 
         // If localData returns "null", do nothing
         if (!localData) {
