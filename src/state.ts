@@ -7,16 +7,8 @@ const state = {
     listener: [], 
     // Initializer
     init() {
-        // Get the local data
-        const localData = JSON.parse(localStorage.getItem("saved-tasks"));
-        console.log('Se ha ejecutado el Init State');
-
-        // If localData returns "null", do nothing
-        if (!localData) {
-            return;
-        } else {
-            this.setState(localData);
-        }
+       
+     
     },
     getState(){
         return this.data;
@@ -33,11 +25,12 @@ const state = {
         this.data = newState;
 
         // Save the changes made to the state
-        localStorage.setItem("saved-tasks", JSON.stringify(this.data));
+        // localStorage.setItem('New State', JSON.stringify(this.data));
 
         for (const cbFunction of this.listener) {
             cbFunction(newState);
         }
+        console.log('Me acaban de setear esto:', newState);
     },
     suscribe(callback: (any)=> any ){   //recibe una función (callback)
         this.listener.push(callback);   //agrega lo que tiene que hacer el listener. 
