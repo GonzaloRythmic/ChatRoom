@@ -1,12 +1,9 @@
 import *as express from 'express';
-
 import {json} from 'body-parser';
 import {v4 as uuidv4} from 'uuid';
 import *as cors from 'cors';
-import { initRouter } from './router';
-import { state } from './state';
 import { getDatabase, ref, set, onValue } from "firebase/database";
-import { firebaseApp } from "./database";
+import { firebaseApp } from "../database";
  
   const appExpress = express()
   appExpress.use(json());
@@ -18,9 +15,9 @@ function main () {
   const realTimeDataBase = getDatabase(firebaseApp);
 
   //Set an atribute to the rtdb//
-  set(ref(realTimeDataBase, 'ChatRoom/Room_1'), {  //el atributo .set() setea a "keys" ya existentes. 
-   nombre: "prueba número 2"
-  });
+  // set(ref(realTimeDataBase, 'ChatRoom/Room_1'), {  //el atributo .set() setea a "keys" ya existentes. 
+  //  nombre: "prueba número 2"
+  // });
 
   //Read data from rtdb//
   const rtdbRef = ref(realTimeDataBase, 'ChatRoom/Room_1');
