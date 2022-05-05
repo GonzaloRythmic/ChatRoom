@@ -26,15 +26,6 @@ function main () {
   console.log('Soy la data de la realTimeDataBase', data);
   })
   
-  // appExpress.get('/ChatRooms', (req, res) => {
-  //   res.json(req.body);
-  // })
-
-  // appExpress.post('/ChatRooms/Room_1', (req, res)=>{
-  //   chatRoomsColl.add(req.body).then()
-  //   res.json(req.body);
-  // })
-  
   appExpress.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
   })
