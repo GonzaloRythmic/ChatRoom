@@ -1,4 +1,4 @@
-import {initHomePage} from './src/Pages/homepage/index'
+import {initHomePage} from './Pages/homepage/index'
 
 const BASE_PATH = "/cap5-FinalChallange";
 

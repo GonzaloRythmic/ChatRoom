@@ -1,12 +1,13 @@
-import *as express from 'express';
-import {json} from 'body-parser';
+
+
 import {v4 as uuidv4} from 'uuid';
 import *as cors from 'cors';
 import { getDatabase, ref, set, onValue } from "firebase/database";
-import { firebaseApp } from "../database";
+import { firebaseApp } from "./database";
+import { appExpress } from './express';
  
-  const appExpress = express()
-  appExpress.use(json());
+  // const appExpress = express()
+  // appExpress.use(json());
   const port = 3000
 
 
