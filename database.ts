@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-
+import { getDatabase, ref, set, onValue } from "firebase/database";
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
     apiKey: "'w52IIbHhAc4BgvzJJennld8PDMvQsvqkRK0nSMcM'",
@@ -9,5 +9,6 @@ const firebaseConfig = {
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
-
-export {firebaseApp};
+const rtdb = getDatabase(firebaseApp)//RTDB//
+const chatRoomRef = ref(rtdb, 'chatrooms'); //Reference to the RTDB//
+export {rtdb, chatRoomRef};
