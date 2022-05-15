@@ -1,12 +1,10 @@
-import {Router} from '@vaadin/router';  //Router.go() = cambio de pantalla.
+import {Router} from '@vaadin/router';
 import { state } from '../../state';
 
 type Messages = {
   name: string,
   message: string;
 }
-const gitHubImg = require ('../../Github-Emoji.png');
-
 
 class HomePage extends HTMLElement {
   connectedCallback() {

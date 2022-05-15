@@ -9,6 +9,5 @@ import { state } from './src/state';
 
 function main () {
   state.init();
-
 }
 main()

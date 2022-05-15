@@ -1,4 +1,4 @@
-import {Router, Resolver} from '@vaadin/router';
+import {Router} from '@vaadin/router';
 
 const router = new Router(document.querySelector('.root'));
 router.setRoutes([
