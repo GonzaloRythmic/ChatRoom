@@ -1,7 +1,7 @@
 import {Router} from '@vaadin/router';  //Router.go() = cambio de pantalla.
 
 
-export function initChatPage () {
+
 class Chatpage extends HTMLElement {
   connectedCallback() {
     this.render();
@@ -107,15 +107,8 @@ class Chatpage extends HTMLElement {
       }
     }`;
     this.appendChild(style);
-  
-
   }
-    
-   
-
-    
-  
 }
 
 customElements.define('chat-page', Chatpage);
-}
+
