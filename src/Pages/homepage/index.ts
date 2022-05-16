@@ -1,30 +1,28 @@
-<<<<<<< HEAD
-import {Router} from '@vaadin/router';
-=======
-// import {Router} from '@vaadin/router';  //Router.go() = cambio de pantalla.
->>>>>>> ff182dea56a537743ee327e967ba79a85595876d
+import {Router} from '@vaadin/router';  //Router.go() = cambio de pantalla.
 import { state } from '../../state';
 
 type Messages = {
   name: string,
   message: string;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> ff182dea56a537743ee327e967ba79a85595876d
+class HomePage extends HTMLElement {
+  connectedCallback() {
+    this.render();
+    document.getElementById('button').addEventListener("click", (e)=>{
+      e.preventDefault();
+      const name = document.querySelector('.fname') as any;
+      const nameValue = name.value
+      state.setName(nameValue)
 
-
-export function initHome() {
-  const div = document.createElement('div');
-  document.getElementById('button').addEventListener("click", (e)=>{
-  e.preventDefault();
-  const name = document.querySelector('.fname') as any;
-  const nameValue = name.value
-  state.setName(nameValue);})
+     Router.go('/chatpage');
+    });
+  }
   
-  const messages: Messages [] = [];
-  div.innerHTML = `
+  messages: Messages [] = [];
+
+  render(){
+    this.innerHTML = `
     <div class = container-header>Bienvenido</div>
     <div class = container-form>
       <div class="container">
@@ -36,48 +34,42 @@ export function initHome() {
           <div class="col-75">
           <input type="text" class = "fname" id="fname" name="firstname" placeholder="Your name..">
           </div>
-    </div>
+      </div>
       
-    <div class="row margin-top">
-      <input class = "button is-black"  type="submit" id = "button">
-    </div>
+      <div class="row margin-top">
+        <input class = "button is-black"  type="submit" id = "button">
+      </div>
     </form>
     </div>
     </div>
     <div class ="img-container">
       <div class = "designed-text">Designed by:</div><div class = "gonzalo-text">GonzaloNahuelDev</div>
     </div>
-  `
+    `
          
-  const style = document.createElement("style");
-  style.innerHTML =`
+    const style = document.createElement("style");
+    style.innerHTML =`
     .gonzalo-text{
-    font-family: 'Anton';
+      font-family: 'Anton';
     }
-
     .designed-text{
       font-family: 'Alfa Slab One';
     }
-
     .img-container{
       width: 100%;
       display: flex;
       justify-content: right;
       padding: 0 10px;
       position:fixed; bottom:0; z-index:999999;
-
     }
-
     .container-form{
       display:flex;
       justify-content: center;
       margin-top: 100px;
     }
-
     .margin-top{
       margin-top: 25px;
     }
-
     .container-header{
       font-family: 'Swanky and Moo Moo';
       font-size: 68px;
@@ -85,12 +77,10 @@ export function initHome() {
       display: flex;
       justify-content: center;
     }
-
     .textstyle{
       font-family: 'Gorditas';
       font-size: 25px;
     }
-
     input[type=text], select, textarea{
     width: 100%;
     padding: 12px;
@@ -144,10 +134,17 @@ export function initHome() {
       margin-top: 0;
       }
     }`;
+    this.appendChild(style);
 
-    div.appendChild(style);
-    return div
-  };
+  }
+    
+   
+
+    
+  
+}
+
+customElements.define('home-page', HomePage);
 
 
 
